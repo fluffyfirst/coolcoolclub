@@ -1,0 +1,17 @@
+{
+  "name": "cool-cool-club-queue",
+  "version": "1.0.0",
+  "description": "ระบบจัดคิวสนามแบดมินตัน COOL COOL CLUB (Node.js + SQLite, ซิงค์หลายเครื่องแบบเรียลไทม์)",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "test": "node --test"
+  },
+  "engines": { "node": ">=22" },
+  "license": "UNLICENSED",
+  "private": true,
+  "dependencies": {
+    "better-sqlite3": "^13.0.3",
+    "express": "^4.22.0"
+  }
+}

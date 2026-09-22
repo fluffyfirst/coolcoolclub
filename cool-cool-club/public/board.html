@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>คิวสนามแบด COOL COOL CLUB</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Prompt:wght@500;600;700&family=Noto+Sans+Thai:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  color-scheme:light;
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px);
+  padding-bottom:env(safe-area-inset-bottom,0px);
+  --bg:#F2F3F5; --surface:#FFFFFF; --surface2:#F7F8FA; --ink:#14161A; --muted:#667085; --line:#E3E5EA; --chip:#EDEFF3;
+  --btn:#D3202C; --btn-ink:#FFFFFF;
+  --floor:#DC3A41; --floor2:#BE222C; --floor-deep:#8A141C;
+  --warn-bg:#FFF1CC; --warn-ink:#6B4600; --ok-bg:rgba(22,163,74,.12); --ok-ink:#15803D;
+  --shadow:0 1px 2px rgba(20,22,26,.05),0 14px 30px -18px rgba(120,20,28,.35);
+  --font-display:'Prompt','Noto Sans Thai',system-ui,sans-serif;
+  --font-body:'Noto Sans Thai','Prompt',system-ui,sans-serif;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    color-scheme:dark;
+    --bg:#0E1013; --surface:#16191E; --surface2:#1D2127; --ink:#F1F3F6; --muted:#9AA3B2; --line:#2A2F37; --chip:#242932;
+    --btn:#FF5C63; --btn-ink:#2B0709; --floor-deep:#6E1119;
+    --warn-bg:#3A2C0C; --warn-ink:#F7D88A; --ok-bg:rgba(74,222,128,.14); --ok-ink:#86EFAC;
+    --shadow:0 1px 2px rgba(0,0,0,.3),0 14px 30px -18px rgba(0,0,0,.7);
+  }
+}
+:root[data-theme="dark"]{
+  color-scheme:dark;
+  --bg:#0E1013; --surface:#16191E; --surface2:#1D2127; --ink:#F1F3F6; --muted:#9AA3B2; --line:#2A2F37; --chip:#242932;
+  --btn:#FF5C63; --btn-ink:#2B0709; --floor-deep:#6E1119;
+  --warn-bg:#3A2C0C; --warn-ink:#F7D88A; --ok-bg:rgba(74,222,128,.14); --ok-ink:#86EFAC;
+  --shadow:0 1px 2px rgba(0,0,0,.3),0 14px 30px -18px rgba(0,0,0,.7);
+}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*,*::before,*::after{box-sizing:inherit}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--font-body);font-size:16px;line-height:1.5;-webkit-text-size-adjust:100%}
+input,button{font:inherit;color:inherit}
+h1,h2,h3{font-family:var(--font-display);margin:0;line-height:1.25}
+.wrap{max-width:1160px;margin:0 auto;padding:18px 16px 40px}
+.r1{background:#D9DDD6;color:#2B332E}.r2{background:#BFE3C9;color:#12432A}.r3{background:#BBD9F2;color:#113A5E}
+.r4{background:#F6E08B;color:#4C3B00}.r5{background:#F6C59A;color:#5A2A05}.r6{background:#DCC8F2;color:#3A1466}
+.tag{font-style:normal;display:inline-block;padding:0 8px;border-radius:999px;font:600 11px/18px var(--font-display);white-space:nowrap}
+.av{width:34px;height:34px;border-radius:50%;display:grid;place-items:center;font:600 15px var(--font-display);flex:none}
+.top{display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap}
+.brand{display:flex;align-items:center;gap:12px}
+.logo{width:56px;height:auto;border-radius:8px;box-shadow:0 6px 14px -6px rgba(190,34,44,.7)}
+.brand h1{font-size:23px;font-weight:700;letter-spacing:.02em}
+.brand p{margin:0;font-size:13px;color:var(--muted)}
+.live{display:inline-flex;align-items:center;gap:8px;background:var(--surface);border:1px solid var(--line);border-radius:999px;padding:6px 14px;font-size:13px;color:var(--muted)}
+.dot{width:8px;height:8px;border-radius:50%;background:#22C55E}
+.live.off .dot{background:#EF4444}
+.me{margin:18px 0;background:var(--surface);border:1px solid var(--line);border-radius:22px;padding:14px 16px}
+.me label{display:block;font:600 14px var(--font-display);margin-bottom:8px}
+.me input{width:100%;min-height:48px;border-radius:14px;border:1px solid var(--line);background:var(--surface2);padding:6px 16px;font-size:16px}
+.mebox{margin-top:12px;padding:12px 14px;border-radius:14px;background:var(--warn-bg);color:var(--warn-ink);font-size:15px}
+.mebox b{font-family:var(--font-display)}
+.mebox.ok{background:var(--ok-bg);color:var(--ok-ink)}
+.mebox.none{background:var(--surface2);color:var(--muted)}
+.grid{display:grid;gap:22px;grid-template-columns:minmax(0,1fr)}
+@media (min-width:1000px){.grid{grid-template-columns:minmax(0,1fr) 380px;align-items:start}}
+h2.sec{font-size:17px;font-weight:600;margin:0 0 12px}
+.courts{display:grid;gap:14px;grid-template-columns:repeat(auto-fill,minmax(min(100%,300px),1fr))}
+.court{background:var(--surface);border:1px solid var(--line);border-radius:22px;box-shadow:var(--shadow);overflow:hidden}
+.chead{display:flex;align-items:center;gap:12px;padding:12px 14px}
+.cno{width:42px;height:42px;border-radius:13px;background:linear-gradient(160deg,#E23A42,#B21B25);color:#fff;font:700 19px var(--font-display);display:grid;place-items:center;flex:none}
+.pill{display:inline-flex;align-items:center;gap:6px;font-size:12px;line-height:20px;padding:0 10px;border-radius:999px;background:var(--chip);color:var(--muted)}
+.pill.live{background:var(--ok-bg);color:var(--ok-ink)}
+.pill.draft{background:var(--warn-bg);color:var(--warn-ink)}
+.timer{margin-left:auto;font:600 20px var(--font-display);font-variant-numeric:tabular-nums}
+.floor{margin:0 10px 10px;border-radius:16px;background:var(--floor-deep);padding:8px}
+.area{border-radius:8px;background:linear-gradient(160deg,var(--floor),var(--floor2));padding:12px 10px;display:grid;grid-template-columns:1fr auto 1fr;gap:8px;align-items:center;min-height:120px;position:relative}
+.area::before{content:"";position:absolute;left:50%;top:0;bottom:0;border-left:3px dashed rgba(255,255,255,.7)}
+.team{display:grid;gap:6px;position:relative;z-index:1}
+.vs{font:600 12px var(--font-display);color:#fff;background:rgba(0,0,0,.28);border-radius:999px;padding:2px 8px;position:relative;z-index:1}
+.pl{display:flex;align-items:center;gap:7px;background:rgba(255,255,255,.97);color:#14161A;border-radius:12px;padding:4px 8px 4px 4px;min-width:0}
+.pl .av{width:26px;height:26px;font-size:12px}
+.pl b{font:600 13px/1.2 var(--font-display);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.pl.empty{background:rgba(255,255,255,.12);border:1.5px dashed rgba(255,255,255,.65);color:rgba(255,255,255,.85);padding:6px 10px}
+.emptyc{grid-column:1/-1;text-align:center;color:rgba(255,255,255,.9);font:600 18px var(--font-display)}
+.area.isempty::before{display:none}
+.area.isempty{grid-template-columns:1fr}
+.queue{background:var(--surface);border:1px solid var(--line);border-radius:22px;padding:16px}
+.qh{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px}
+.qh h2{font-size:17px}
+.hint{margin:0;color:var(--muted);font-size:13.5px}
+.wl{list-style:none;margin:12px 0 0;padding:0;display:grid;gap:6px}
+.wl li{display:grid;grid-template-columns:24px 1fr auto;gap:10px;align-items:center;padding:8px 10px;border-radius:16px;background:var(--surface2);border:1.5px solid transparent}
+.wl li.up{border-color:color-mix(in srgb,var(--btn) 45%,transparent)}
+.wl li.me-hit{border-color:var(--ink);background:var(--warn-bg);color:var(--warn-ink)}
+.rk{font:600 13px var(--font-display);color:var(--muted);text-align:center}
+.who{display:flex;align-items:center;gap:10px;min-width:0}
+.who b{display:block;font:600 14.5px/1.25 var(--font-display);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.who small{display:flex;align-items:center;gap:6px;font-size:12px;color:var(--muted)}
+.wt{padding:0 8px;border-radius:999px;background:var(--chip);color:var(--muted);font-size:12px;line-height:20px;white-space:nowrap}
+.wt[data-lv="1"]{background:var(--warn-bg);color:var(--warn-ink)}
+.wt[data-lv="2"]{background:var(--btn);color:var(--btn-ink)}
+.foot{margin-top:22px;text-align:center;color:var(--muted);font-size:13px}
+.skeleton{color:var(--muted);text-align:center;padding:40px 0}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="top">
+    <div class="brand">
+      <svg class="logo" viewBox="0 0 134 61" aria-hidden="true"><rect width="134" height="61" rx="6" fill="#C62F2A"/><g fill="none" stroke="#fff" stroke-width="2.4"><rect x="6" y="6" width="122" height="49"/><line x1="6" y1="14" x2="128" y2="14"/><line x1="6" y1="47" x2="128" y2="47"/><line x1="67" y1="3" x2="67" y2="58"/><line x1="40" y1="14" x2="40" y2="47"/><line x1="94" y1="14" x2="94" y2="47"/><line x1="6" y1="30.5" x2="40" y2="30.5"/><line x1="94" y1="30.5" x2="128" y2="30.5"/></g></svg>
+      <div><h1 id="club">COOL COOL CLUB</h1><p>คิวสนามวันนี้ อัปเดตสด</p></div>
+    </div>
+    <span class="live" id="live"><i class="dot"></i><span id="livetxt">กำลังเชื่อมต่อ</span></span>
+  </header>
+
+  <section class="me" aria-label="ค้นหาคิวของฉัน">
+    <label for="who">หาคิวของคุณ พิมพ์ชื่อหรือชื่อเล่น</label>
+    <input id="who" type="text" placeholder="เช่น โอ๊ต" autocomplete="off" enterkeyhint="search">
+    <div id="mebox" hidden></div>
+  </section>
+
+  <div class="grid">
+    <section aria-label="คอร์ท">
+      <h2 class="sec">คอร์ท</h2>
+      <div class="courts" id="courts"><p class="skeleton">กำลังโหลด...</p></div>
+    </section>
+    <aside class="queue" aria-label="คิวรอ">
+      <div class="qh"><h2>คิวรอ</h2><span class="pill" id="qcount">0 คน</span></div>
+      <p class="hint" id="qhint">เรียงจากเล่นน้อยและรอนานที่สุด</p>
+      <ol class="wl" id="queue"></ol>
+    </aside>
+  </div>
+  <p class="foot" id="foot"></p>
+</div>
+
+<script>
+(function(){
+'use strict';
+var RK=['หน้าบ้าน','BG','N','S','P','C'];
+var data=null,offset=0,lastOk=0;
+var $=function(id){return document.getElementById(id)};
+function esc(s){return String(s).replace(/[&<>"']/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]})}
+function initial(n){
+  var a=Array.from(String(n).trim()),i=0;
+  while(i<a.length-1&&/[เแโใไ]/.test(a[i])) i++;
+  return (a[i]||'?').toUpperCase();
+}
+function av(p){return '<span class="av r'+p.lv+'">'+esc(initial(p.n))+'</span>'}
+function fmt(ms){
+  var s=Math.max(0,Math.floor(ms/1000)),h=Math.floor(s/3600),m=Math.floor(s%3600/60),r=s%60;
+  var p=function(n){return String(n).padStart(2,'0')};
+  return h?h+':'+p(m)+':'+p(r):p(m)+':'+p(r);
+}
+function waitFmt(ms){
+  var m=Math.floor(Math.max(0,ms)/60000);
+  if(m<1) return 'ไม่ถึง 1 นาที';
+  if(m<60) return m+' นาที';
+  return Math.floor(m/60)+' ชม. '+(m%60)+' นาที';
+}
+function waitLv(ms){var m=Math.floor(Math.max(0,ms)/60000);return m>=20?2:m>=10?1:0}
+function now(){return Date.now()+offset}
+
+function team(t){
+  return '<div class="team">'+t.map(function(p){
+    return p?'<div class="pl">'+av(p)+'<b>'+esc(p.n)+'</b></div>':'<div class="pl empty"><b>ว่าง</b></div>';
+  }).join('')+'</div>';
+}
+function courtHtml(c){
+  var pill=c.status==='playing'?'<span class="pill live">กำลังเล่น</span>':c.status==='draft'?'<span class="pill draft">กำลังจัดทีม</span>':'<span class="pill">ว่าง</span>';
+  var head='<div class="chead"><div class="cno">'+c.no+'</div><div><h3>คอร์ท '+c.no+'</h3>'+pill+'</div>'+
+    (c.status==='playing'?'<span class="timer" data-start="'+c.start+'">'+fmt(now()-c.start)+'</span>':'')+'</div>';
+  var body=c.status==='empty'?'<div class="area isempty"><div class="emptyc">ว่าง พร้อมเล่น</div></div>':
+    '<div class="area">'+team(c.teams[0])+'<span class="vs">พบ</span>'+team(c.teams[1])+'</div>';
+  return '<article class="court">'+head+'<div class="floor">'+body+'</div></article>';
+}
+function norm(s){return String(s).trim().toLowerCase()}
+function draw(){
+  if(!data) return;
+  $('club').textContent=data.club||'COOL COOL CLUB';
+  $('courts').innerHTML=data.courts.length?data.courts.map(courtHtml).join(''):'<p class="skeleton">ยังไม่มีคอร์ทที่เปิดวันนี้</p>';
+  var n=data.size*2,t=now(),q=data.queue,me=norm($('who').value);
+  $('qcount').textContent=q.length+' คน';
+  $('qhint').textContent='เรียงจากเล่นน้อยและรอนานที่สุด กรอบสีแดงคือ '+n+' คนแรกที่ควรได้เล่นก่อน'+(data.resting?' (พักอยู่ '+data.resting+' คน)':'');
+  $('queue').innerHTML=q.length?q.map(function(p,i){
+    var ms=t-p.ws,hit=me&&norm(p.n).indexOf(me)>=0;
+    return '<li class="'+(i<n?'up ':'')+(hit?'me-hit':'')+'"><span class="rk">'+(i+1)+'</span>'+
+      '<span class="who">'+av(p)+'<span style="min-width:0"><b>'+esc(p.n)+'</b><small><i class="tag r'+p.lv+'">'+RK[p.lv-1]+'</i>เล่น '+p.g+' เกม</small></span></span>'+
+      '<span class="wt" data-since="'+p.ws+'" data-lv="'+waitLv(ms)+'">รอ '+waitFmt(ms)+'</span></li>';
+  }).join(''):'<li style="grid-template-columns:1fr"><span class="hint">ตอนนี้ไม่มีคนรอ</span></li>';
+  drawMe();
+  $('foot').textContent='อัปเดตล่าสุด '+new Date(lastOk).toLocaleTimeString('th-TH');
+}
+function drawMe(){
+  var box=$('mebox'),q=norm($('who').value);
+  if(!q||!data){box.hidden=true;return}
+  box.hidden=false;
+  var t=now(),n=data.size*2;
+  // playing / drafting
+  for(var i=0;i<data.courts.length;i++){
+    var c=data.courts[i];
+    if(c.status==='empty') continue;
+    var all=c.teams[0].concat(c.teams[1]);
+    for(var k=0;k<all.length;k++){
+      if(all[k]&&norm(all[k].n).indexOf(q)>=0){
+        box.className='mebox ok';
+        box.innerHTML='<b>'+esc(all[k].n)+'</b> '+(c.status==='playing'?'กำลังเล่นอยู่ที่ <b>คอร์ท '+c.no+'</b>':'ถูกจัดลง <b>คอร์ท '+c.no+'</b> เตรียมเริ่มเล่น');
+        return;
+      }
+    }
+  }
+  for(var j=0;j<data.queue.length;j++){
+    var p=data.queue[j];
+    if(norm(p.n).indexOf(q)>=0){
+      var ahead=j;
+      box.className='mebox';
+      box.innerHTML='<b>'+esc(p.n)+'</b> อยู่คิวที่ <b>'+(j+1)+'</b> จาก '+data.queue.length+' คน รอมาแล้ว '+waitFmt(t-p.ws)+
+        (ahead<n?' อยู่ใน '+n+' คนแรก เตรียมตัวได้เลย':' มีคนรอก่อนหน้า '+ahead+' คน');
+      return;
+    }
+  }
+  box.className='mebox none';
+  box.textContent='ไม่พบชื่อนี้ในคิวหรือบนคอร์ท ลองพิมพ์ชื่ออื่น หรือถามเจ้าหน้าที่';
+}
+
+function setLive(ok){
+  $('live').classList.toggle('off',!ok);
+  $('livetxt').textContent=ok?'อัปเดตสด':'ขาดการเชื่อมต่อ กำลังลองใหม่';
+}
+function load(){
+  return fetch('/api/board',{cache:'no-store'}).then(function(r){
+    if(!r.ok) throw new Error('bad');
+    return r.json();
+  }).then(function(j){
+    offset=j.now-Date.now();lastOk=Date.now();data=j;setLive(true);draw();
+  }).catch(function(){setLive(false)});
+}
+try{
+  var saved=localStorage.getItem('cc-me');
+  if(saved) $('who').value=saved;
+}catch(e){}
+$('who').addEventListener('input',function(){
+  try{localStorage.setItem('cc-me',$('who').value)}catch(e){}
+  draw();
+});
+var lastVer=-1;
+function connect(){
+  try{
+    var es=new EventSource('/api/events');
+    es.onmessage=function(e){
+      try{var v=JSON.parse(e.data).version;if(v!==lastVer){lastVer=v;load()}}catch(_){}
+    };
+    es.onerror=function(){setLive(false)};
+    es.onopen=function(){setLive(true)};
+  }catch(e){}
+}
+setInterval(function(){
+  var t=now();
+  document.querySelectorAll('.timer').forEach(function(el){el.textContent=fmt(t-(+el.dataset.start))});
+  document.querySelectorAll('.wt').forEach(function(el){
+    var ms=t-(+el.dataset.since);
+    el.textContent='รอ '+waitFmt(ms);el.dataset.lv=waitLv(ms);
+  });
+},1000);
+setInterval(load,10000); // สำรองเผื่อ SSE ถูกบล็อก
+load();connect();
+})();
+</script>
+</body>
+</html>

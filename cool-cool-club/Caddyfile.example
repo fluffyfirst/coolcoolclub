@@ -1,0 +1,4 @@
+# เปลี่ยนเป็นโดเมนของคุณ แล้วรัน: caddy run --config Caddyfile
+queue.example.com {
+	reverse_proxy localhost:3000
+}
